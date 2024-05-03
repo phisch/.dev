@@ -1,0 +1,19 @@
+div.alert {
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+
+    &.info {
+        background: rgba(8, 106, 218, 0.2);
+
+    }
+
+    &.warning {
+        background: rgba(255, 255, 0, 0.1);
+        color: rgba(255, 255, 0, 0.9);
+    }
+
+    &.error {
+        background: rgba(255, 0, 0, 0.1);
+        color: rgba(255, 0, 0, 0.9);
+    }
+}

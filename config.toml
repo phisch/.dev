@@ -20,6 +20,8 @@ extra_syntaxes_and_themes = ["highlight_themes"]
 highlight_theme = "phocus"
 
 [extra]
+sld = "phisch"
+tld = "dev"
 
 navigation = [
     { title = "Blog", target = "_index.md" },

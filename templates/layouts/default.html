@@ -33,9 +33,11 @@
     </nav>
 </header>
 
-{% block content %}
-    <p>This is an empty layout</p>
-{% endblock content %}
+<main>
+    {% block content %}
+        <p>This is an empty layout</p>
+    {% endblock content %}
+</main>
 
 <footer>
     {% set author = config.extra.author %}

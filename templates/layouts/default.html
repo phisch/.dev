@@ -10,7 +10,7 @@
     </a>
     <nav>
         {% if config.extra.navigation %}
-            <ul>
+            <ul class="pages">
                 {% for entry in config.extra.navigation %}
                     {% if entry.target is ending_with("_index.md") %}
                         {% set target = get_section(path=entry.target) %}
@@ -24,7 +24,7 @@
             </ul>
         {% endif %}
         {% if config.extra.socials %}
-            <ul>
+            <ul class="socials">
                 {% for entry in config.extra.socials %}
                     <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
                 {% endfor %}

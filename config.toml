@@ -16,7 +16,8 @@ taxonomies = [
 
 [markdown]
 highlight_code = true
-highlight_theme = "inspired-github"
+extra_syntaxes_and_themes = ["highlight_themes"]
+highlight_theme = "phocus"
 
 [extra]
 

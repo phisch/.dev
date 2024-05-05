@@ -1,41 +1,33 @@
-
-
-/* 
-code {
-    background: rgb(10,10,10);
-    padding: 1.5rem;
+code:not([data-lang]) {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.05rem 0.2rem;
+    border-radius: 0.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    user-select: all;
 }
- */
-// pre that has any data-lang attribute
+
 pre[data-lang] {
     background: rgb(20, 20, 20) !important;
     padding: 1.5rem;
     //margin-inline: -1.5rem;
     border-radius: 0.2rem;
     overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    //white-space: pre-wrap;
+    //word-wrap: break-word;
 
-}
-
-
-
-::-webkit-scrollbar {
-    height: 1.7em;
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-    border-radius: 10em;
-    background: rgba(255, 255, 255, 0.1);
-    background-clip: content-box;
-    border: 0.5em solid transparent;
-
-    &:hover {
+    &::-webkit-scrollbar {
+        height: 1.5em;
+    }
+   
+    &::-webkit-scrollbar-thumb {
         border-radius: 10em;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
         background-clip: content-box;
         border: 0.5em solid transparent;
+    
+        &:hover:not(:active) {
+            background: rgba(255, 255, 255, 0.2);
+            background-clip: content-box;
+        }
     }
 }
-
-

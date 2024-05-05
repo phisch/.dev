@@ -12,6 +12,10 @@ section#table-of-contents {
         padding: 0;
     }
 
+    > ol {
+        margin: 0;
+    }
+
     a {
         color: inherit;
         text-decoration: none;
@@ -25,8 +29,18 @@ section#table-of-contents {
         }
 
         &.active:not(:hover) {
-            color: var(--color-accent);
-            //background: rgba(255, 255, 255, 0.1);
+            color: var(--color-foreground);
+        }
+    }
+
+    li {
+        &:not(:has(> .accordion)), > .accordion > label {
+            border-right: 2px solid transparent;
+            padding-right: 0.5em;
+
+            &:has(> .active) {
+                border-color: var(--color-accent);
+            }
         }
     }
 

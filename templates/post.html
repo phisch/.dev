@@ -1,0 +1,17 @@
+{% extends "layouts/default.html" %}
+{% import "macros/headings.html" as headings %}
+
+{% block script %}
+    <script src="{{ get_url(path="anchors.js", trailing_slash=false) }}"></script>
+{% endblock script %}
+
+{% block side %}
+    {{ headings::table_of_contents(headings=page.toc) }}
+{% endblock side %}
+
+{% block content %}
+    {{ page.content | safe }}
+
+    {% if page.earlier %}Previous article: {{ page.earlier.permalink }}{% endif %}
+    {% if page.later %}Next article: {{ page.later.permalink }}{% endif %}
+{% endblock content %}

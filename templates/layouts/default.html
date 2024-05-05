@@ -1,7 +1,9 @@
 {% extends 'layouts/empty.html' %}
+
 {% block style %}
     <link rel="stylesheet" href="{{ get_url(path="styles.css", trailing_slash=false) }}">
 {% endblock style %}
+
 {% block layout %}
 <header>
     <a id="logo" href="{{ config.base_url }}">
@@ -34,9 +36,10 @@
 </header>
 
 <main>
-    {% block content %}
-        <p>This is an empty layout</p>
-    {% endblock content %}
+    <section id="content">
+        {% block content %}{% endblock content %}
+    </section>
+    {% block side %}{% endblock side %}
 </main>
 
 <footer>
@@ -58,5 +61,4 @@
     </section>
 </footer>
 
-{% block script %}{% endblock script %}
 {% endblock content %}

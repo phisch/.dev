@@ -1,0 +1,19 @@
+html {
+    @-moz-document url-prefix() {
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0.5em;
+        //border: 10px solid green;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10em;
+        background: rgba(255, 255, 255, 0.1);
+
+        &:hover:not(:active) {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    }
+}

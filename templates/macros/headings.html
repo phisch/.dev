@@ -1,0 +1,31 @@
+{% macro table_of_contents(headings) %}
+{% if headings %}
+<section id="table-of-contents">
+    {{ self::headings(headings=headings) }}
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro headings(headings) %}
+{% if headings %}
+<ol>
+    {% for heading in headings %}
+    <li>
+        {% if heading.children %}
+        <div class="accordion">
+            <input type="checkbox" id="{{ heading.id }}-toggle" checked>
+            <label for="{{ heading.id }}-toggle">
+                <a href="#{{ heading.id }}">{{ heading.title }}</a>
+            </label>
+            <div class="content">
+                {{ self::headings(headings=heading.children) }}
+            </div>
+        </div>
+        {% else %}
+        <a href="#{{ heading.id }}">{{ heading.title }}</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ol>
+{% endif %}
+{% endmacro %}

@@ -1,0 +1,79 @@
+section#table-of-contents {
+    --stagger: 1.5em;
+    --transition-duration: 0.2s;
+    --color-accent: #8066F5;
+    --color-foreground: #F5F5F5;
+
+    font-size: 0.9em;
+
+    ol {
+        list-style: none;
+        margin: 0 0 0 var(--stagger);
+        padding: 0;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        display: block;
+        padding: 0.3em 0.6em;
+        border-radius: 0.4em;
+
+        &:hover {
+            color: var(--color-foreground);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active:not(:hover) {
+            color: var(--color-accent);
+            //background: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    li:has(> a) {
+        margin-left: 1.5em;
+    }
+
+    div.accordion {
+        input {
+            display: none;
+
+            ~ .content {
+                display: grid;
+                grid-template-rows: 1fr;
+                transition: grid-template-rows var(--transition-duration) ease-out;
+            }
+
+            ~ .content > * {
+                overflow: hidden;
+            }
+
+            &:not(:checked) ~ .content {
+                grid-template-rows: 0fr;
+            }
+
+            &:checked ~ label::before {
+                transform: rotate(90deg);
+            }
+        }
+
+        label {
+            display: block;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                font-family: 'Material Symbols Outlined';
+                font-size: 1.5em;
+                width: 1em;
+                content: "chevron_right";
+                transition: transform var(--transition-duration) ease-in-out;
+            }
+
+            a {
+                flex: 1;
+                display: block;
+            }
+        }
+    }
+}

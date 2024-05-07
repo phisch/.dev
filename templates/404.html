@@ -1,5 +1,11 @@
 {% extends 'layouts/empty.html' %}
+{% block style %}
+    <link rel="stylesheet" href="{{ get_url(path="404.css", trailing_slash=false) }}">
+{% endblock style %}
+{% block title %}404 Not Found{% endblock title %}
 {% block content %}
-    <h1>404</h1>
-    <p>Page not found!</p>
+    <main id="not-found">
+        <h1>404</h1>
+        <p>Congrats! You found a page that doesn't exist!</p>
+    </main>
 {% endblock content %}

@@ -1,0 +1,33 @@
+body > footer {
+
+    section#author {
+        display: flex;
+
+        img {
+            height: 5em;
+            border-radius: 0.3em;
+            transition: transform 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.5);   
+            }
+        }
+
+        address {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            // center
+            align-items: start;
+            margin-left: 1em;
+
+            font-style: normal;
+
+            p {
+                margin: 0;
+            }
+
+        }
+    }
+
+}

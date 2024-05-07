@@ -1,7 +1,7 @@
 {% extends 'layouts/empty.html' %}
 
 {% block style %}
-    <link rel="stylesheet" href="{{ get_url(path="styles.css", trailing_slash=false) }}">
+    <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
 {% endblock style %}
 
 {% block layout %}
@@ -46,13 +46,14 @@
     {% set author = config.extra.author %}
     {% if author %}
         <section id="author">
-            {% if author.fingerprint %}
-                <img src="{{ get_url(path="fingerprint.svg") }}" alt="{{ author.fingerprint }}">
-            {% endif %}
-            
-            <span>{{ author.name }}{% if author.email %} <span>{{author.email}}</span>{% endif %}</p>
-            <p>{{ author.fingerprint }}</p>
-            <code>gpg2 --locate-keys {{author.email}}</code>
+
+            <img src="{{ get_url(path="fingerprint.svg") }}" alt="{{ author.fingerprint }}" class="gpg-qr">
+
+            <address>
+                <p class="name">{{ author.name }}{% if author.email %}<a href="mailto:{{author.email}}">{{author.email}}</a>{% endif %}</p>
+                <code class="gpg-id">{{ author.fingerprint }}</code>
+                <code class="gpg-locate">gpg2 --locate-keys {{author.email}}</code>
+            </address>
         </section>
     {% endif %}
 

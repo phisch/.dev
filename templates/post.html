@@ -5,13 +5,13 @@
     <script src="{{ get_url(path="anchors.js", trailing_slash=false) }}"></script>
 {% endblock script %}
 
-{% block side %}
+{% block aside %}
     {{ headings::table_of_contents(headings=page.toc) }}
-{% endblock side %}
+{% endblock aside %}
 
-{% block content %}
+{% block main %}
     {{ page.content | safe }}
 
     {% if page.earlier %}Previous article: {{ page.earlier.permalink }}{% endif %}
     {% if page.later %}Next article: {{ page.later.permalink }}{% endif %}
-{% endblock content %}
+{% endblock main %}

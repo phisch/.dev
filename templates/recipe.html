@@ -25,7 +25,7 @@
 {% endif %}
 {% endmacro ingredient %}
 
-{% block content %}
+{% block main %}
 
 {% if page.extra.ingredients %}
 <ul id="ingredients">
@@ -43,4 +43,4 @@
 
 {% if page.earlier %}Previous article: {{ page.earlier.permalink }}{% endif %}
 {% if page.later %}Next article: {{ page.later.permalink }}{% endif %}
-{% endblock content %}
+{% endblock main %}

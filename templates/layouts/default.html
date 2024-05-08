@@ -35,12 +35,10 @@
     </nav>
 </header>
 
-<main>
-    <section id="content">
-        {% block content %}{% endblock content %}
-    </section>
-    {% block side %}{% endblock side %}
-</main>
+<div id="content">
+    <main>{% block main %}{% endblock main %}</main>
+    <aside>{% block aside %}{% endblock aside %}</aside>
+</div>
 
 <footer>
     {% set author = config.extra.author %}

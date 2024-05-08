@@ -12,15 +12,15 @@ body {
 }
 
 body {
-    display: flex; 
+    display: flex;
     min-height: 100vh;
     max-width: 100%;
     width: 100vw;
     flex-direction: column;
     align-items: center;
 
-    > header {
-        max-width: 1000px;
+    >header {
+        max-width: 1200px;
         width: 100%;
         padding-block: 3em;
 
@@ -29,33 +29,45 @@ body {
         align-items: center;
     }
 
-    > #content {
+    >#content {
         flex: 1;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: flex-start;
+        gap: 2em;
+        padding-inline: 2em;
 
-        > main {
+        >main {
             max-width: 70ch;
             width: 100%;
+            flex: 2;
         }
 
-        > aside {
-            &:not(:has(*)) {
-                display: none;
-            }
-
+        >aside {
+            flex: 1;
+            max-width: 40ch;
             position: sticky;
             top: 1em;
             display: flex;
             flex-direction: column;
-            padding-inline-start: 2em;
+
+            &:not(:has(*)) {
+                display: none;
+            }
         }
-        
+
+        @media (max-width: 120ch) {
+            flex-direction: column;
+
+            >aside {
+                max-width: 100%;
+            }
+        }
+
     }
 
-    > footer {
+    >footer {
         max-width: 1000px;
         width: 100%;
         padding-block-start: 2em;

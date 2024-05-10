@@ -1,75 +1,69 @@
 @use 'footer';
 @use 'header';
 
-html {
-    scroll-behavior: smooth;
-}
-
-html,
 body {
-    margin: 0;
     background: rgb(10, 10, 10);
 }
 
 body {
     display: flex;
-    min-height: 100vh;
+    flex-direction: column;
+
     max-width: 100%;
     width: 100vw;
-    flex-direction: column;
-    align-items: center;
+    padding: 1em;
 
-    >header {
-        max-width: 1200px;
-        width: 100%;
-        padding-block: 3em;
-
+    > header {
+        place-self: center;
+        
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;
+        
+        max-width: 1200px;
+        width: 100%;
+
+        @media (max-width: 550px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
     }
 
-    >#content {
-        flex: 1;
+    > #content {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        max-width: 100%;
+        container-type: inline-size;
+        justify-content: center;
         align-items: flex-start;
         gap: 2em;
-        padding-inline: 2em;
 
-        >main {
-            max-width: 70ch;
-            width: 100%;
-            flex: 2;
+        > aside:not(:has(*)) {
+            display: none;
         }
 
-        >aside {
-            flex: 1;
+        > main {
+            max-width: 70ch;
+            min-width: 50ch;
+            flex: 2;
+            overflow: auto;
+        }
+
+        > aside {
             max-width: 40ch;
+            min-width: 10ch;
+            width: fit-content;
             position: sticky;
             top: 1em;
-            display: flex;
-            flex-direction: column;
+        }
 
-            &:not(:has(*)) {
+        @container (width < 90ch) {
+            > main {
+                min-width: auto
+            }
+            > aside {
                 display: none;
             }
         }
-
-        @media (max-width: 120ch) {
-            flex-direction: column;
-
-            >aside {
-                max-width: 100%;
-            }
-        }
-
-    }
-
-    >footer {
-        max-width: 1000px;
-        width: 100%;
-        padding-block-start: 2em;
     }
 }

@@ -1,0 +1,23 @@
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family:
+		system-ui,
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif;
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	-moz-tab-size: 4;
+	tab-size: 4;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+}

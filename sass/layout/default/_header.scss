@@ -13,11 +13,45 @@
 
 nav {
     display: flex;
+    align-items: center;
 
     ul.socials {
         margin-left: 1rem;
         padding-left: 1rem;
         border-left: 2px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --icon-size: 2em;
+
+        a[href^="https://github.com"] {            
+            display: inline-block;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            color: white;
+            background-size: var(--icon-size) var(--icon-size);
+            text-indent: 100%;
+            overflow: hidden; 
+
+            background-color: white;
+            mask-image: url('/github-mark.svg');
+        }
+
+        a[href^="feed:"] {
+            display: inline-block;
+            overflow: hidden; 
+            width: var(--icon-size);
+            height: var(--icon-size);
+
+            &::before {
+                font-family: 'Material Symbols Outlined';
+                line-height: 1em;
+                font-size: var(--icon-size);
+                width: var(--icon-size);
+                height: var(--icon-size);
+                content: "rss_feed";
+            }
+        }
     }
 
     ul {

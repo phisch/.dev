@@ -1,27 +1,36 @@
-section#table-of-contents {
-    --stagger: 1.5em;
+nav#table-of-contents {
+    --indent: 1.5rem;
     --transition-duration: 0.2s;
     --color-accent: #8066F5;
     --color-foreground: #F5F5F5;
+    --indicator-size: 2px;
+    --icon-size: 1.5rem;
 
-    font-size: 0.9em;
+    ol { --level: 0; }
+    ol ol { --level: 1; }
+    ol ol ol { --level: 2; }
+    ol ol ol ol { --level: 3; }
+    ol ol ol ol ol { --level: 4; }
+    ol ol ol ol ol ol { --level: 5; }
+    ol ol ol ol ol ol ol { --level: 6; }
 
-    ol {
-        list-style: none;
-        margin: 0 0 0 var(--stagger);
-        padding: 0;
-    }
+    border-left: var(--indicator-size) solid rgb(20,20,20);
 
     > ol {
-        margin: 0;
+        margin: 0 0 0 calc(var(--indicator-size) * -1);
+    }
+
+    ol {
+        padding: 0;
+        list-style: none;
     }
 
     a {
         color: inherit;
         text-decoration: none;
         display: block;
-        padding: 0.3em 0.6em;
-        border-radius: 0.4em;
+        padding: 0.3rem 0.6rem;
+        border-radius: 0.4rem;
 
         &:hover {
             color: var(--color-foreground);
@@ -35,17 +44,17 @@ section#table-of-contents {
 
     li {
         &:not(:has(> .accordion)), > .accordion > label {
-            border-right: 2px solid transparent;
-            padding-right: 0.5em;
+            padding-left: calc(var(--level) * var(--indent) + calc(1rem + var(--icon-size)));
+            border-left: var(--indicator-size) solid transparent;
 
             &:has(> .active) {
                 border-color: var(--color-accent);
             }
-        }
-    }
 
-    li:has(> a) {
-        margin-left: 1.5em;
+            &:is(label) {
+                padding-left: calc(var(--level) * var(--indent) + 1rem);
+            }
+        }
     }
 
     div.accordion {
@@ -78,8 +87,9 @@ section#table-of-contents {
 
             &::before {
                 font-family: 'Material Symbols Outlined';
-                font-size: 1.5em;
-                width: 1em;
+                font-size: var(--icon-size);
+                width: var(--icon-size);
+                height: var(--icon-size);
                 content: "chevron_right";
                 transition: transform var(--transition-duration) ease-in-out;
             }

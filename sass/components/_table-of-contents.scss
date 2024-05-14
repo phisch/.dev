@@ -1,10 +1,11 @@
 nav#table-of-contents {
-    --indent: 1.5rem;
-    --transition-duration: 0.2s;
-    --color-accent: #8066F5;
-    --color-foreground: #F5F5F5;
-    --indicator-size: 2px;
+    --indent: 1rem;
+    --transition-duration: 0.1s;
+    --indicator-size: 1px;
     --icon-size: 1.5rem;
+
+    font-size: 0.9em;
+    line-height: 1.3em;
 
     ol { --level: 0; }
     ol ol { --level: 1; }
@@ -14,7 +15,7 @@ nav#table-of-contents {
     ol ol ol ol ol ol { --level: 5; }
     ol ol ol ol ol ol ol { --level: 6; }
 
-    border-left: var(--indicator-size) solid rgb(20,20,20);
+    border-left: var(--indicator-size) solid var(--contrast-more);
 
     > ol {
         margin: 0 0 0 calc(var(--indicator-size) * -1);
@@ -31,14 +32,15 @@ nav#table-of-contents {
         display: block;
         padding: 0.3rem 0.6rem;
         border-radius: 0.4rem;
+        color: var(--foreground);
 
         &:hover {
-            color: var(--color-foreground);
-            background: rgba(255, 255, 255, 0.1);
+            color: var(--foreground-strong);
+            background: var(--contrast);
         }
 
         &.active:not(:hover) {
-            color: var(--color-foreground);
+            color: var(--foreground-strong);
         }
     }
 
@@ -48,7 +50,7 @@ nav#table-of-contents {
             border-left: var(--indicator-size) solid transparent;
 
             &:has(> .active) {
-                border-color: var(--color-accent);
+                border-color: var(--accent-secondary);
             }
 
             &:is(label) {

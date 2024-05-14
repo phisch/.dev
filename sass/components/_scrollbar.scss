@@ -1,19 +1,18 @@
 html {
     @-moz-document url-prefix() {
-        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+        scrollbar-color: var(--contrast) transparent;
     }
 
     &::-webkit-scrollbar {
         width: 0.5em;
-        //border: 10px solid green;
     }
 
     &::-webkit-scrollbar-thumb {
         border-radius: 10em;
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--contrast);
 
         &:hover:not(:active) {
-            background: rgba(255, 255, 255, 0.3);
+            background: var(--contrast-more);
         }
     }
 }

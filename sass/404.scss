@@ -1,3 +1,4 @@
+@use 'colors';
 @use 'base/typography';
 
 html {
@@ -12,7 +13,7 @@ body {
     width: 100vw;
     display: flex;
     align-items: center;
-    background: rgb(10, 10, 10);
+    background: var(--background);
     position: relative;
 }
 
@@ -26,6 +27,7 @@ main {
         font-size: 14em;
         font-weight: 100;
         margin: 0;
+        color: var(--foreground-strong);
     }
     p {
         color: white;

@@ -1,13 +1,17 @@
 #logo {
     text-decoration: none;
     display: flex;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--foreground-strong);
     align-items: baseline;
     font-size: 2rem;
 
     .tld {
         font-size: 1rem;
-        color: rgba(255, 255, 255, 0.2);
+        color: var(--foreground-weak);
+    }
+
+    &:hover .tld {
+        color: var(--accent-secondary);
     }
 }
 
@@ -18,7 +22,7 @@ nav {
     ul.socials {
         margin-left: 1rem;
         padding-left: 1rem;
-        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        border-left: 2px solid var(--contrast-more);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -62,8 +66,13 @@ nav {
         gap: 1rem;
 
         li a {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--foreground-strong);
             text-decoration: none;
+            
+            &:hover {
+                color: var(--accent-secondary);
+                text-decoration: inherit;
+            }
         }
     }
 }

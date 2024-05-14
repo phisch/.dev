@@ -3,17 +3,17 @@ div.alert {
     border-radius: 0.3rem;
 
     &.info {
-        background: rgba(8, 106, 218, 0.2);
-
+        background: color-mix(in srgb, var(--color-blue) 20%, transparent);
+        color: var(--color-blue);
     }
 
     &.warning {
-        background: rgba(255, 255, 0, 0.1);
-        color: rgba(255, 255, 0, 0.9);
+        background: color-mix(in srgb, var(--color-yellow) 20%, transparent);
+        color: var(--color-yellow);
     }
 
     &.error {
-        background: rgba(255, 0, 0, 0.1);
-        color: rgba(255, 0, 0, 0.9);
+        background: color-mix(in srgb, var(--color-red) 20%, transparent);
+        color: var(--color-red);
     }
 }

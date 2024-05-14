@@ -2,12 +2,14 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--foreground);
+    line-height: 1.6em;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+    line-height: 1.4em;
 }
 
 code {
@@ -16,47 +18,52 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--foreground-strong);
 
     a {
         text-decoration: none;
         color: inherit;
         position: relative;
+        display: flex;
+        align-items: center;
 
-        &:hover::before {
-            content: '#';
-            color: rgba(255, 255, 255, 0.2);
-            position: absolute;
-            left: -1em;
+        &:hover {
+            text-decoration: inherit;
+
+            &::before {
+                content: '#';
+                position: absolute;
+                left: -1em;
+                font-size: 1.5em;
+                padding-right: 0.3em;
+                color: var(--foreground-weak);
+            }
         }
     }
 }
 
-p {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6em;
-}
-
-
-a[href^="mailto:"] {
-    color: rgba(255, 255, 255, 0.2);
+a {
+    color: var(--accent-secondary);
     text-decoration: none;
-    position: relative;
 
     &:hover {
-        color: rgb(63, 198, 97);
+        color: var(--foreground-strong);
+        text-decoration: underline;
     }
 
-    &::before {
-        content: '[';
-        color: rgba(255, 255, 255, 0.2);
-    }
-
-    &::after {
-        content: ']';
-        color: rgba(255, 255, 255, 0.2);
+    &[href^="mailto:"] {
+        position: relative;
+    
+        &::before {
+            content: '[';
+            padding-right: 0.1em;
+            color: var(--foreground-weak);
+        }
+    
+        &::after {
+            content: ']';
+            padding-left: 0.1em;
+            color: var(--foreground-weak);
+        }
     }
 }

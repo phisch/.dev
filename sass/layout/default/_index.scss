@@ -2,7 +2,8 @@
 @use 'header';
 
 body {
-    background: rgb(10, 10, 10);
+    background: var(--background);
+    min-height: 100vh;
 }
 
 body {
@@ -23,10 +24,13 @@ body {
         max-width: 1200px;
         width: 100%;
 
+        margin-bottom: 2em;
+
         @media (max-width: 550px) {
             flex-direction: column;
             align-items: center;
             gap: 1em;
+            padding-block: 0;
         }
     }
 
@@ -37,6 +41,7 @@ body {
         justify-content: center;
         align-items: flex-start;
         gap: 2em;
+        flex: 1;
 
         > aside:not(:has(*)) {
             display: none;
@@ -46,7 +51,6 @@ body {
             max-width: 70ch;
             min-width: 50ch;
             flex: 2;
-            overflow: auto;
         }
 
         > aside {
@@ -59,10 +63,16 @@ body {
 
         @container (width < 90ch) {
             > main {
-                min-width: auto
+                min-width: auto;
             }
             > aside {
                 display: none;
+            }
+        }
+
+        @container (width < 76ch ) or ((width > 100ch) and (width < 114ch)) {
+            > main {
+                overflow-x: auto;
             }
         }
     }

@@ -1,0 +1,263 @@
+$icon-font-family: "phicons" !default;
+$icon-font-path: "fonts" !default;
+
+$icon-rss_feed: unquote('"\\e900"');
+$icon-arrow_right: unquote('"\\e901"');
+$icon-info: unquote('"\\e903"');
+$icon-warning: unquote('"\\e904"');
+$icon-error: unquote('"\\e905"');
+$icon-note: unquote('"\\e91c"');
+$icon-lightbulb: unquote('"\\e91d"');
+$icon-bolt: unquote('"\\e902"');
+$icon-search: unquote('"\\e90a"');
+$icon-person: unquote('"\\e918"');
+$icon-fingerprint: unquote('"\\e907"');
+$icon-encrypted: unquote('"\\e91a"');
+$icon-lock: unquote('"\\e90d"');
+$icon-email: unquote('"\\e906"');
+$icon-tag: unquote('"\\e91b"');
+$icon-thumbs_down: unquote('"\\e908"');
+$icon-thumbs_up: unquote('"\\e909"');
+$icon-code: unquote('"\\e90b"');
+$icon-globe: unquote('"\\e90e"');
+$icon-heart: unquote('"\\e919"');
+$icon-heart_broken: unquote('"\\e910"');
+$icon-star: unquote('"\\e916"');
+$icon-rocket: unquote('"\\e913"');
+$icon-terminal: unquote('"\\e90c"');
+$icon-acute: unquote('"\\e911"');
+$icon-history: unquote('"\\e90f"');
+$icon-cycle: unquote('"\\e912"');
+$icon-delete: unquote('"\\e914"');
+$icon-close: unquote('"\\e917"');
+$icon-github: unquote('"\\e91e"');
+$icon-matrix: unquote('"\\e91f"');
+$icon-discord: unquote('"\\e920"');
+
+
+@font-face {
+    font-family: '#{$icon-font-family}';
+    src:  url('#{$icon-font-path}/#{$icon-font-family}.eot?rmy5zg');
+    src:  url('#{$icon-font-path}/#{$icon-font-family}.eot?rmy5zg#iefix') format('embedded-opentype'),
+      url('#{$icon-font-path}/#{$icon-font-family}.ttf?rmy5zg') format('truetype'),
+      url('#{$icon-font-path}/#{$icon-font-family}.woff?rmy5zg') format('woff'),
+      url('#{$icon-font-path}/#{$icon-font-family}.svg?rmy5zg##{$icon-font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+
+.icon,
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+    font-family: $icon-font-family !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga";
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+    font-variant-ligatures: discretionary-ligatures;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-rss_feed {
+    &:before {
+        content: $icon-rss_feed;
+    }
+}
+
+.icon-arrow_right {
+    &:before {
+        content: $icon-arrow_right;
+    }
+}
+
+.icon-info {
+    &:before {
+        content: $icon-info;
+    }
+}
+
+.icon-warning {
+    &:before {
+        content: $icon-warning;
+    }
+}
+
+.icon-error {
+    &:before {
+        content: $icon-error;
+    }
+}
+
+.icon-note {
+    &:before {
+        content: $icon-note;
+    }
+}
+
+.icon-lightbulb {
+    &:before {
+        content: $icon-lightbulb;
+    }
+}
+
+.icon-bolt {
+    &:before {
+        content: $icon-bolt;
+    }
+}
+
+.icon-search {
+    &:before {
+        content: $icon-search;
+    }
+}
+
+.icon-person {
+    &:before {
+        content: $icon-person;
+    }
+}
+
+.icon-fingerprint {
+    &:before {
+        content: $icon-fingerprint;
+    }
+}
+
+.icon-encrypted {
+    &:before {
+        content: $icon-encrypted;
+    }
+}
+
+.icon-lock {
+    &:before {
+        content: $icon-lock;
+    }
+}
+
+.icon-email {
+    &:before {
+        content: $icon-email;
+    }
+}
+
+.icon-tag {
+    &:before {
+        content: $icon-tag;
+    }
+}
+
+.icon-thumbs_down {
+    &:before {
+        content: $icon-thumbs_down;
+    }
+}
+
+.icon-thumbs_up {
+    &:before {
+        content: $icon-thumbs_up;
+    }
+}
+
+.icon-code {
+    &:before {
+        content: $icon-code;
+    }
+}
+
+.icon-globe {
+    &:before {
+        content: $icon-globe;
+    }
+}
+
+.icon-heart {
+    &:before {
+        content: $icon-heart;
+    }
+}
+
+.icon-heart_broken {
+    &:before {
+        content: $icon-heart_broken;
+    }
+}
+
+.icon-star {
+    &:before {
+        content: $icon-star;
+    }
+}
+
+.icon-rocket {
+    &:before {
+        content: $icon-rocket;
+    }
+}
+
+.icon-terminal {
+    &:before {
+        content: $icon-terminal;
+    }
+}
+
+.icon-acute {
+    &:before {
+        content: $icon-acute;
+    }
+}
+
+.icon-history {
+    &:before {
+        content: $icon-history;
+    }
+}
+
+.icon-cycle {
+    &:before {
+        content: $icon-cycle;
+    }
+}
+
+.icon-delete {
+    &:before {
+        content: $icon-delete;
+    }
+}
+
+.icon-close {
+    &:before {
+        content: $icon-close;
+    }
+}
+
+.icon-github {
+    &:before {
+        content: $icon-github;
+    }
+}
+
+.icon-matrix {
+    &:before {
+        content: $icon-matrix;
+    }
+}
+
+.icon-discord {
+    &:before {
+        content: $icon-discord;
+    }
+}

@@ -28,7 +28,7 @@
         {% if config.extra.socials %}
             <ul class="socials">
                 {% for entry in config.extra.socials %}
-                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                    <li><a href="{{ entry.url }}" class="icon">{{ entry.title }}</a></li>
                 {% endfor %}
             </ul>
         {% endif %}

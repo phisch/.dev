@@ -88,11 +88,7 @@ nav#table-of-contents {
             align-items: center;
 
             &::before {
-                font-family: 'Material Symbols Outlined';
                 font-size: var(--icon-size);
-                width: var(--icon-size);
-                height: var(--icon-size);
-                content: "chevron_right";
                 transition: transform var(--transition-duration) ease-in-out;
             }
 

@@ -1,3 +1,5 @@
+@use '../../base/icons' as icons;
+
 #logo {
     text-decoration: none;
     display: flex;
@@ -26,35 +28,21 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        --icon-size: 2em;
 
-        a[href^="https://github.com"] {            
-            display: inline-block;
-            width: var(--icon-size);
-            height: var(--icon-size);
-            color: white;
-            background-size: var(--icon-size) var(--icon-size);
-            text-indent: 100%;
-            overflow: hidden; 
-
-            background-color: white;
-            mask-image: url('/github-mark.svg');
+        a {
+            font-size: 0;
+            display: flex;
+            align-items: center;
         }
 
-        a[href^="feed:"] {
-            display: inline-block;
-            overflow: hidden; 
-            width: var(--icon-size);
-            height: var(--icon-size);
+        a[href^="https://github.com"]::before {
+            font-size: 1rem;
+            content: icons.$icon-github;
+        }
 
-            &::before {
-                font-family: 'Material Symbols Outlined';
-                line-height: 1em;
-                font-size: var(--icon-size);
-                width: var(--icon-size);
-                height: var(--icon-size);
-                content: "rss_feed";
-            }
+        a[href^="feed:"]::before {
+            font-size: 1.2rem;
+            content: icons.$icon-rss_feed;
         }
     }
 

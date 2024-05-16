@@ -1,0 +1,85 @@
+$icons: (
+    rss_feed: "\e900",
+    arrow_right: "\e901",
+    info: "\e903",
+    warning: "\e904",
+    error: "\e905",
+    note: "\e91c",
+    lightbulb: "\e91d",
+    bolt: "\e902",
+    search: "\e90a",
+    person: "\e918",
+    fingerprint: "\e907",
+    encrypted: "\e91a",
+    lock: "\e90d",
+    email: "\e906",
+    tag: "\e91b",
+    thumbs_down: "\e908",
+    thumbs_up: "\e909",
+    code: "\e90b",
+    globe: "\e90e",
+    heart: "\e919",
+    heart_broken: "\e910",
+    star: "\e916",
+    rocket: "\e913",
+    terminal: "\e90c",
+    acute: "\e911",
+    history: "\e90f",
+    cycle: "\e912",
+    delete: "\e914",
+    close: "\e917",
+    github: "\e91e",
+    matrix: "\e91f",
+    discord: "\e920",
+);
+
+@function get-icon($name) {
+    @if map-has-key($icons, $name) {
+        @return map-get($icons, $name);
+    } @else {
+        @error "Icon '#{$name}' is not available in the map. Available icons are: #{map-keys($icons)}.";
+    }
+}
+
+$font-family: "phicons" !default;
+$font-path: "fonts" !default;
+
+@font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-path}/#{$font-family}.eot?rmy5zg');
+    src: url('#{$font-path}/#{$font-family}.eot?rmy5zg#iefix') format('embedded-opentype'),
+    url('#{$font-path}/#{$font-family}.ttf?rmy5zg') format('truetype'),
+    url('#{$font-path}/#{$font-family}.woff?rmy5zg') format('woff'),
+    url('#{$font-path}/#{$font-family}.svg?rmy5zg##{$font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.icon,
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+    font-family: $font-family !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga";
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+    font-variant-ligatures: discretionary-ligatures;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@each $icon, $value in $icons {
+    .icon-#{$icon}:before {
+        content: $value;
+    }
+}

@@ -1,0 +1,24 @@
+{#
+    arguments:
+        - type?: string
+            one of "note", "info", "danger", "error", "warning", or "success"
+            setting a type also adds an icon, which can be overwritten by the icon argument
+        - icon?: string
+            one of the icon names from the bundled phicons set
+        - title?: string
+            the title of the admonition
+#}
+
+{% set type = type | default(value = "") %}
+{% if icon %}
+    {% set icon = "icon-" ~ icon %}
+{% else %}
+    {% set icon = "icon" %}
+{% endif %}
+
+<div class="{{ ["alert", type, icon] | join(sep=" ") }}">
+    {% if title %}<h2>{{ title }}</h2>{% endif %}
+    <section>
+        {{ body | markdown | safe }}
+    </section>
+</div>

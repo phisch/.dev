@@ -1,33 +1,70 @@
 body > footer {
+    --icon-size: 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 
     section#author {
         display: flex;
+        gap: 2em;
+        justify-content: space-between;
 
-        img {
-            height: 5em;
-            border-radius: 0.3em;
-            transition: transform 0.3s ease-in-out;
+        > ul.socials {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 1em 2em;
 
-            &:hover {
-                transform: scale(1.5);   
+            li {
+                white-space: nowrap;
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                
+                &::before {
+                    font-size: var(--icon-size);
+                }
+
+                .note {
+                    color: var(--foreground-weak);
+                }
             }
         }
 
-        address {
+        section#identity {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            // center
-            align-items: start;
-            margin-left: 1em;
+            gap: 2em;
 
-            font-style: normal;
-
-            p {
-                margin: 0;
+            img.gpg-qr {
+                height: 9em;
+                border-radius: 0.3em;
+                transition: transform 0.3s ease-in-out;
+    
+                &:hover {
+                    transform: scale(1.4);   
+                }
             }
+            
+            address {
+                display: flex;
+                flex-direction: column;
+                font-style: normal;
+                justify-content: space-between;
+    
+                p {
+                    margin: 0;
+                }
 
+                code {
+                    display: flex;
+                    gap: 0.5em;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+            }
         }
     }
-
 }

@@ -21,30 +21,6 @@ nav {
     display: flex;
     align-items: center;
 
-    ul.socials {
-        margin-left: 1rem;
-        padding-left: 1rem;
-        border-left: 2px solid var(--contrast-more);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        a {
-            font-size: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        a[href^="https://github.com"]::before {
-            font-size: 1.5rem;
-            content: icons.get-icon('github');
-        }
-
-        a[href^="feed:"]::before {
-            font-size: 1.8rem;
-            content: icons.get-icon('rss_feed');
-        }
-    }
 
     ul {
         display: flex;
@@ -53,13 +29,34 @@ nav {
         padding: 0;
         gap: 1rem;
 
-        li a {
+        a {
             color: var(--foreground-strong);
             text-decoration: none;
             
             &:hover {
                 color: var(--accent-secondary);
                 text-decoration: inherit;
+            }
+        }
+
+        &.socials {
+            padding-left: 1em;
+            margin-left: 1em;
+            border-left: 2px solid var(--contrast-more);
+
+            a {
+                color: var(--foreground-weak);
+                font-size: 0;
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    color: var(--foreground-strong);
+                }
+
+                &::before {
+                    font-size: 1.3rem;
+                }
             }
         }
     }

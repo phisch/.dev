@@ -30,12 +30,19 @@ navigation = [
     { title = "Phrame", target = "pages/phrame/index.md" }
 ]
 
-socials = [
-    { title = "GitHub", url = "https://github.com/phisch" },
-    { title = "Rss", url = "feed:/rss.xml" },
-]
-
 [extra.author]
 name = "Philipp Schaffrath"
 email = "philipp.schaffrath@gmail.com"
-fingerprint = "A00155F3C961D57E645299D66BEB117F7BDBD749"
+#gpg = "6BEB117F7BDBD749"
+gpg = "A001 55F3 C961 D57E 6452 99D6 6BEB 117F 7BDB D749"
+
+socials = [
+    { name = "GitHub", icon = "github", handle = "phisch", url = "https://github.com/phisch", header = true },
+    { name = "Libera.chat", icon = "tag", handle = "phisch", note = "on libera.chat" },
+    { name = "Matrix", icon = "matrix", handle = "@phisch:matrix.org", url = "https://matrix.to/#/@phisch:matrix.org" },
+    { name = "Discord", icon = "discord", handle = "phisch.dev" },
+    { name = "X", icon = "twitter", handle = "phischdev", url = "https://x.com/phischdev" },
+    { name = "Mastodon", icon = "mastodon", handle = "@phisch@fosstodon.org", url = "https://fosstodon.org/@phisch" },
+    { name = "Keybase", icon = "keybase", handle = "phisch", url = "https://keybase.io/phisch" },
+    { name = "Email", icon = "email", handle = "philipp.schaffrath@gmail.com", url = "mailto:philipp.schaffrath@gmail.com" }
+]

@@ -25,11 +25,20 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        {% if config.extra.socials %}
+        {% if config.extra.author.socials or config.generate_feed %}
             <ul class="socials">
-                {% for entry in config.extra.socials %}
-                    <li><a href="{{ entry.url }}" class="icon">{{ entry.title }}</a></li>
+                {% for social in config.extra.author.socials | filter(attribute="header", value=true) %}
+                    {% if social.url %}
+                        <li>
+                            <a target="_blank" class="icon-{{ social.icon }}" href="{{ social.url }}">{{ social.name }}</a>
+                        </li>
+                    {% endif %}
                 {% endfor %}
+                {% if config.generate_feed %}
+                    <li>
+                        <a target="_blank" class="icon-rss_feed" href="{{ get_url(path=config.feed_filename) }}">RSS</a>
+                    </li>
+                {% endif %}
             </ul>
         {% endif %}
     </nav>
@@ -44,14 +53,34 @@
     {% set author = config.extra.author %}
     {% if author %}
         <section id="author">
-
-            <img src="{{ get_url(path="fingerprint.svg") }}" alt="{{ author.fingerprint }}" class="gpg-qr">
-
-            <address>
-                <p class="name">{{ author.name }}{% if author.email %}<a href="mailto:{{author.email}}">{{author.email}}</a>{% endif %}</p>
-                <code class="gpg-id">{{ author.fingerprint }}</code>
-                <code class="gpg-locate">gpg2 --locate-keys {{author.email}}</code>
-            </address>
+            {% if author.socials %}
+            <ul class="socials">
+                {% for social in author.socials %}
+                <li class="icon-{{ social.icon }}">
+                    {% if social.url %}
+                        <a href="{{ social.url }}">{{ social.handle }}</a>
+                    {% else %}
+                        <span>{{ social.handle }}</span>
+                    {% endif %}
+                    {% if social.note %}
+                        <span class="note">{{ social.note }}</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <section id="identity">
+                <img src="{{ get_url(path="fingerprint.svg") }}" alt="{{ author.gpg }}" class="gpg-qr">
+                <address>
+                    <span>{{ author.name }}</span>
+                    <code class="gpg" class="icon-encrypted">
+                        {% for chunk in author.gpg | split(pat=" ") %}
+                            <span>{{ chunk }}</span>
+                        {% endfor %}
+                    </code>
+                    <code class="gpg-locate">gpg2 --locate-keys {{author.email}}</code>
+                </address>
+            </section>
         </section>
     {% endif %}
 
@@ -59,5 +88,4 @@
         <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author.name }}</p>
     </section>
 </footer>
-
-{% endblock content %}
+{% endblock layout %}

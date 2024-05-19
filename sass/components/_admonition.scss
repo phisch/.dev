@@ -11,7 +11,7 @@ div.alert {
     align-items: center;
     gap: var(--spacing);
 
-    background: var(--contrast-weak);
+    background: var(--contrast);
 
     &::before {
         font-size: var(--icon-size);

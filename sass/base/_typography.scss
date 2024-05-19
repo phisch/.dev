@@ -50,20 +50,4 @@ a {
         color: var(--foreground-strong);
         text-decoration: underline;
     }
-
-    &[href^="mailto:"] {
-        position: relative;
-    
-        &::before {
-            content: '[';
-            padding-right: 0.1em;
-            color: var(--foreground-weak);
-        }
-    
-        &::after {
-            content: ']';
-            padding-left: 0.1em;
-            color: var(--foreground-weak);
-        }
-    }
 }

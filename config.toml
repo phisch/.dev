@@ -24,10 +24,7 @@ sld = "phisch"
 tld = "dev"
 
 navigation = [
-    { title = "Blog", target = "_index.md" },
-    { title = "About", target = "pages/about.md" },
-    { title = "Contact", target = "pages/contact.md" },
-    { title = "Phrame", target = "pages/phrame/index.md" }
+    { title = "Blog", target = "_index.md" }
 ]
 
 [extra.author]

@@ -1,4 +1,8 @@
 $icons: (
+    clock: "\e915",
+    memory: "\e921",
+    lock_open: "\e922",
+    document: "\e923",
     rss_feed: "\e900",
     arrow_right: "\e901",
     info: "\e903",
@@ -28,12 +32,12 @@ $icons: (
     cycle: "\e912",
     delete: "\e914",
     close: "\e917",
+    keybase: "\e924",
+    mastodon: "\e925",
+    twitter: "\e926",
     github: "\e91e",
     matrix: "\e91f",
-    discord: "\e920",
-    keybase: "\e921",
-    mastodon: "\e922",
-    twitter: "\e915",
+    discord: "\e920"
 );
 
 @function get-icon($name) {

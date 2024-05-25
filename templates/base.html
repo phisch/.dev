@@ -7,14 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ config.description }}">
     <meta name="author" content="{{ config.extra.author.name }}">
+    <meta name="darkreader-lock">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     {% block style %}{% endblock style %}
 </head>
 
-<body>
-    {% block layout %}
-        {% block main %}{% endblock main %}
-    {% endblock layout %}
-    {% block script %}{% endblock script %}
-</body>
+{% block body %}
+    <body class="{% block layout_name %}base{% endblock %}">
+        {% block layout %}
+            {% block main %}{% endblock main %}
+        {% endblock layout %}
+        {% block script %}{% endblock script %}
+    </body>
+{% endblock body %}
 </html>

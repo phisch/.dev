@@ -42,7 +42,7 @@ div.alert {
     }
 
     @mixin color($color) {
-        background: color-mix(in srgb, var($color) 20%, transparent);
+        background: color-mix(in srgb, var($color) 12%, transparent);
         color: var($color);
     }
 

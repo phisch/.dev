@@ -1,0 +1,18 @@
+@use '../../colors';
+
+body > header > #logo {
+    text-decoration: none;
+    display: flex;
+    color: var(--foreground-strong);
+    align-items: baseline;
+    font-size: 2rem;
+
+    .tld {
+        font-size: 1rem;
+        color: var(--foreground-weak);
+    }
+
+    &:hover .tld {
+        color: var(--accent-secondary);
+    }
+}

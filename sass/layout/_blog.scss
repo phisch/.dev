@@ -1,0 +1,35 @@
+@use 'header';
+@use 'footer';
+
+// todo: this has to be extracted somewhere else
+html {
+    background: var(--background);
+    min-height: 100vh;
+}
+
+html:has(body.blog) {
+    display: flex;
+    justify-content: center;
+
+    body {
+        container-type: inline-size;
+        container-name: body;
+
+        flex: 1;
+        max-width: 140ch;
+        
+        
+        display: flex;
+        flex-direction: column;
+        padding: min(7vw, 3em);
+        gap: 4em;
+
+        > main {
+            flex: 1;
+            max-width: 100ch;
+            width: 100%;
+            place-self: center;
+        }
+    }
+}
+

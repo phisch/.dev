@@ -1,26 +1,9 @@
+@use '../../colors';
 @use '../../components/icons';
 
-#logo {
-    text-decoration: none;
-    display: flex;
-    color: var(--foreground-strong);
-    align-items: baseline;
-    font-size: 2rem;
-
-    .tld {
-        font-size: 1rem;
-        color: var(--foreground-weak);
-    }
-
-    &:hover .tld {
-        color: var(--accent-secondary);
-    }
-}
-
-nav {
+body>header>nav#navigation {
     display: flex;
     align-items: center;
-
 
     ul {
         display: flex;
@@ -32,7 +15,7 @@ nav {
         a {
             color: var(--foreground-strong);
             text-decoration: none;
-            
+
             &:hover {
                 color: var(--accent-secondary);
                 text-decoration: inherit;

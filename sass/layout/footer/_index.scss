@@ -1,0 +1,48 @@
+@use 'socials';
+@use 'identity';
+@use 'copyright';
+
+@container body (min-width: 900px) {
+    footer {
+        border-top: 1px solid var(--contrast);
+        padding-top: 3em;
+        
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template:
+            "socials author"
+            "copyright copyright";
+        gap: 3em;
+
+        > #socials {
+            grid-area: socials;
+        }
+
+        > #identity {
+            grid-area: author;
+
+            padding-left: 3em;
+            border-left: 1px solid var(--contrast);
+        }
+
+        > #copyright {
+            grid-area: copyright;
+        }
+    }
+}
+
+@container body (max-width: 900px) {
+    footer {
+        border-top: 1px solid var(--contrast);
+        padding-top: 3em;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+
+        > #identity {
+            padding-bottom: 3em;
+            border-bottom: 1px solid var(--contrast);
+        }
+    }
+}    

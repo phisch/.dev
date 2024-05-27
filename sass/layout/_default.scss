@@ -1,0 +1,58 @@
+@use 'header';
+@use 'footer';
+
+// todo: this has to be extracted somewhere else
+html {
+    background: var(--background);
+    min-height: 100vh;
+}
+
+html:has(body.default) {
+    display: flex;
+    justify-content: center;
+
+    body {
+        container-type: inline-size;
+        container-name: body;
+
+        flex: 1;
+        max-width: 140ch;
+        
+        
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: min(7vw, 3em);
+        gap: 4em;
+
+        > header, > footer {
+            width: 100%;
+        }
+
+        > main {
+            flex: 1;
+            max-width: 70ch;
+            min-width: 50ch;
+        }
+
+        > aside {
+            max-width: 40ch;
+            min-width: 30ch;
+        }
+    }
+
+
+    @container body (max-width: calc(80ch + 4em)) {
+        main {
+            flex: 1;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        aside {
+            display: none;
+        }
+    }   
+}
+

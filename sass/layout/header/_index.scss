@@ -1,0 +1,18 @@
+@use 'logo';
+@use 'navigation';
+
+body > header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3em;
+    border-bottom: 1px solid var(--contrast);
+}
+
+
+@container body (max-width: 300px) {
+    body > header {
+        flex-direction: column;
+        gap: 2em;
+        align-items: center;
+    }
+}    

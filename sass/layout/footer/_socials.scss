@@ -1,0 +1,30 @@
+@use '../../colors';
+@use '../../components/icons';
+
+ul.socials {
+    --icon-size: 1.5em;
+
+    grid-area: socials;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1em 3em;
+
+    li {
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        &::before {
+            font-size: var(--icon-size);
+            color: var(--foreground-weak);
+        }
+
+        .note {
+            color: var(--foreground-weak);
+        }
+    }
+}

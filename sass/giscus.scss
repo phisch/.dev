@@ -1,0 +1,297 @@
+@use "colors";
+@use "base/typography";
+
+main {
+    --radius: 0.5em;
+    --background: hsl(0, 0%, 8%);
+    --background-secondary: hsl(0, 0%, 6%);
+
+    --color-canvas-default: var(--background);
+    --color-canvas-overlay: hsl(0, 0%, 14%);
+    --color-canvas-inset: var(--background-secondary);
+    --color-canvas-subtle: var(--background-secondary);
+    --color-fg-default: var(--foreground-strong);
+    --color-fg-muted: var(--foreground-weak);
+    --color-border-default: transparent;
+    --color-border-muted: var(--background);
+    --color-neutral-muted: hsla(0, 0%, 100%, 0.03);
+    --color-btn-text: #{colors.$foreground};
+    --color-btn-bg: transparent;
+    --color-btn-border: transparent;
+    --color-btn-hover-bg: hsla(0, 0%, 100%, 0.05);
+    --color-btn-hover-border: transparent;
+    --color-btn-active-bg: hsla(0, 0%, 100%, 0.1);
+    --color-btn-active-border: transparent;
+    --color-btn-primary-text: #{colors.$foreground-strong};
+    --color-btn-primary-bg: #{transparentize(colors.$green, 0.5)};
+    --color-btn-primary-border: transparent;
+    --color-btn-primary-shadow: 0 0 black;
+    --color-btn-primary-inset-shadow: 0 0 black;
+    --color-btn-primary-hover-bg: #{transparentize(colors.$green, 0.2)};
+    --color-btn-primary-hover-border: transparent;
+    --color-btn-primary-selected-bg: #{transparentize(colors.$green, 0.5)};
+    --color-btn-primary-selected-shadow: 0 0 transparent;
+    --color-btn-primary-disabled-text: #{colors.$foreground-weak};
+    --color-btn-primary-disabled-bg: #{transparentize(colors.$green, 0.9)};
+    --color-btn-primary-disabled-border: #{transparentize(colors.$green, 0.9)};
+}
+
+.gsc-main {
+    .gsc-header {
+        .gsc-left-header * {
+            font-weight: normal;
+        }
+
+        .gsc-right-header {
+            background: transparent;
+            display: flex;
+            gap: 0.5em;
+
+            li {
+                padding: 0;
+
+                button {
+                    padding: 0.5em 1em !important;
+                }
+
+                &[aria-current="true"] button {
+                    background: transparentize(colors.$accent-primary, 0.7) !important;
+                    color: colors.$foreground-strong;
+                }
+            }
+        }
+    }
+
+    .gsc-timeline {
+        .gsc-comment {
+            --border: 0;
+            --background: var(--color-canvas-default);
+
+            border-radius: var(--radius);
+
+            .color-box-border-info {
+                --border: 1px solid #{transparentize(colors.$accent-primary, 0.7)};
+                --background: #{transparentize(colors.$accent-primary, 0.9)};
+            }
+
+            .gsc-comment-author > div span,
+            .gsc-reply-author > div span {
+                padding: 0.2em 0.5em;
+                background: transparentize(colors.$accent-primary, 0.8) !important;
+                border: 1px solid transparentize(colors.$accent-primary, 0.7);
+            }
+
+            > div {
+                border: 0;
+                background: var(--color-canvas-inset);
+
+                > div:nth-child(-n + 3) {
+                    background: var(--background);
+                }
+
+                .gsc-comment-header {
+                    padding: 1em 1em 0;
+                    border-radius: var(--radius) var(--radius) 0 0;
+                    border: var(--border);
+                    border-bottom: 0;
+
+                    .gsc-comment-author {
+                        display: flex;
+                        gap: 1em;
+
+                        .gsc-comment-author-avatar {
+                            display: flex;
+                            gap: 1em;
+
+                            img {
+                                margin: 0 !important;
+                            }
+                        }
+
+                        > div span {
+                            background: transparentize(colors.$accent-primary, 0.9);
+                        }
+                    }
+                }
+
+                .gsc-comment-content {
+                    border-radius: 0;
+                    border-inline: var(--border);
+                }
+
+                .gsc-comment-footer {
+                    padding: 0 1em 1em;
+                    margin: 0;
+                    border-radius: 0 0 var(--radius) var(--radius);
+                    border: var(--border);
+                    border-top: 0;
+
+                    > * {
+                        margin: 0;
+                    }
+                }
+
+                .gsc-replies {
+                    border: 0;
+                    padding: 0;
+
+                    .gsc-reply {
+                        margin: 0;
+                        padding: 1em;
+
+                        > div {
+                            display: flex;
+                            gap: 1em;
+
+                            > div {
+                                margin: 0 !important;
+                            }
+
+                            .gsc-reply-author {
+                                gap: 1em;
+                            }
+                        }
+                    }
+                }
+
+                .gsc-replies + .gsc-reply-box {
+                    padding: 0 1em 1em;
+                }
+
+                .gsc-reply-box {
+                    padding: 1em;
+                }
+            }
+
+            .gsc-reply {
+                .gsc-tl-line {
+                    left: 28px;
+                    top: 1em;
+                    bottom: -1em;
+                    height: auto !important;
+                }
+
+                &:last-child .gsc-tl-line {
+                    bottom: 1em;
+                }
+            }
+        }
+
+    }
+
+    .gsc-comment-box {
+        border-radius: 0 0 var(--radius) var(--radius);
+
+        .gsc-comment-box-main {
+            padding: 1em;
+            margin: 0;
+        }
+
+        .gsc-comment-box-bottom {
+            margin: 0;
+            padding: 0 1em 1em 1em;
+
+            .gsc-comment-box-buttons {
+                display: flex;
+                gap: 1em;
+
+                button {
+                    margin: 0 !important;
+
+                    &[type="submit"][disabled] {
+                        cursor: not-allowed;
+
+                        &:hover {
+                            color: colors.$foreground-weak !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        textarea {
+            background: var(--background-secondary);
+            border-radius: var(--radius);
+
+            &:focus {
+                background: var(--background-secondary);
+            }
+        }
+
+        .gsc-comment-box-textarea-extras {
+            display: none;
+        }
+
+        .gsc-comment-box-preview {
+            min-height: 140px;
+        }
+    }
+
+    .gsc-direct-reaction-buttons button.gsc-direct-reaction-button {
+        --border: 1px solid hsla(0, 0%, 100%, 0.1);
+        --background: transparent;
+
+        border: var(--border) !important;
+        background: var(--background) !important;
+        color: colors.$foreground;
+
+        &:hover {
+            --background: hsla(0, 0%, 100%, 0.1);
+            --border: 1px solid transparent;
+            color: colors.$foreground-strong;
+        }
+
+        &.has-reacted {
+            --background: #{transparentize(colors.$accent-primary, 0.9)};
+            --border: 1px solid #{transparentize(colors.$accent-primary, 0.7)};
+
+            &:hover {
+                --background: #{transparentize(colors.$accent-primary, 0.8)};
+            }
+        }
+    }
+
+    .btn-primary {
+        text-shadow: 0px 0px 7px hsla(0, 0%, 0%, 0.8);
+
+        &:hover {
+            color: colors.$foreground-strong !important;
+        }
+    }
+
+    .gsc-reactions-menu {
+        p {
+            color: colors.$foreground;
+        }
+
+        summary {
+            background: transparent;
+        }
+
+        &[open] summary,
+        summary:hover {
+            background: hsla(0, 0%, 100%, 0.1);
+            color: colors.$foreground-strong;
+        }
+    }
+
+    .hidden {
+        display: initial !important;
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+            color: colors.$accent-secondary !important;
+
+            span,
+            time {
+                color: inherit;
+
+                &:hover {
+                    color: inherit;
+                }
+            }
+        }
+    }
+}

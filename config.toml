@@ -43,3 +43,15 @@ socials = [
     { name = "Keybase", icon = "keybase", handle = "phisch", url = "https://keybase.io/phisch" },
     { name = "Email", icon = "email", handle = "philipp.schaffrath@gmail.com", url = "mailto:philipp.schaffrath@gmail.com" }
 ]
+
+[extra.giscus]
+repo = "phisch/phisch.dev"
+repo_id = "R_kgDOI3LDOw"
+category = "Comments"
+category_id = "DIC_kwDOI3LDO84CfsA8"
+mapping = "pathname"
+strict = true
+input_position = "bottom"
+reactions_enabled = false
+emit_metadata = false
+lang = "en"

@@ -15,4 +15,23 @@
 
     {% if page.earlier %}Previous article: {{ page.earlier.permalink }}{% endif %}
     {% if page.later %}Next article: {{ page.later.permalink }}{% endif %}
+
+    {% if page.extra.comments | default(value=true) %}
+        {% set giscus = config.extra.giscus | default(value="{}") %}
+        <script src="https://giscus.app/client.js"
+            data-repo="{{ giscus.repo }}"
+            data-repo-id="{{ giscus.repo_id }}"
+            data-category="{{ giscus.category }}"
+            data-category-id="{{ giscus.category_id }}"
+            data-mapping="{{ giscus.mapping }}"
+            data-strict="{% if giscus.strict %}1{% else %}0{% endif %}"
+            data-reactions-enabled="{% if giscus.reactions_enabled %}1{% else %}0{% endif %}"
+            data-emit-metadata="{% if giscus.emit_metadata %}1{% else %}0{% endif %}"
+            data-input-position="{{ giscus.input_position }}"
+            data-theme="{{ config.base_url }}/giscus.css"
+            data-lang="{{ giscus.lang }}"
+            crossorigin="anonymous"
+            async>
+        </script>
+    {% endif %}
 {% endblock main %}

@@ -1,22 +1,43 @@
+$red: rgb(218, 88, 88);
+$orange: rgb(237, 148, 84);
+$yellow: rgb(250, 221, 117);
+$green: rgb(63, 198, 97);
+$cyan: rgb(92, 216, 230);
+$blue: rgb(73, 126, 233);
+$purple: rgb(113, 84, 242);
+$pink: rgb(213, 108, 195);
+
+$accent-primary: $purple;
+$accent-secondary: $green;
+
+$foreground: rgb(160, 160, 160);
+$foreground-weak: rgb(60, 62, 63);
+$foreground-strong: rgb(255,255,255);
+
+$background: rgb(10,10,10);
+
+$contrast: rgba(255,255,255, 0.05);
+$contrast-more: rgba(255,255,255, 0.1);
+
 :root {
-    --color-red: rgb(218, 88, 88);
-    --color-orange: rgb(237, 148, 84);
-    --color-yellow: rgb(250, 221, 117);
-    --color-green: rgb(63, 198, 97);
-    --color-cyan: rgb(92, 216, 230);
-    --color-blue: rgb(73, 126, 233);
-    --color-purple: rgb(113, 84, 242);
-    --color-pink: rgb(213, 108, 195);
+    --color-red: #{$red};
+    --color-orange: #{$orange};
+    --color-yellow: #{$yellow};
+    --color-green: #{$green};
+    --color-cyan: #{$cyan};
+    --color-blue: #{$blue};
+    --color-purple: #{$purple};
+    --color-pink: #{$pink};
 
     --accent-primary: var(--color-purple);
     --accent-secondary: var(--color-green);
 
-    --foreground: rgb(160, 160, 160);
-    --foreground-weak: rgb(60, 62, 63);
-    --foreground-strong: rgb(255,255,255);
+    --foreground: #{$foreground};
+    --foreground-weak: #{$foreground-weak};
+    --foreground-strong: #{$foreground-strong};
 
-    --background: rgb(10,10,10);
+    --background: #{$background};
 
-    --contrast: rgba(255,255,255, 0.05);
-    --contrast-more: rgba(255,255,255, 0.1);
+    --contrast: #{$contrast};
+    --contrast-more: #{$contrast-more};
 }   

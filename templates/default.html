@@ -46,11 +46,13 @@
     </nav>
 </header>
 
-{% block content %}
-    <main>{% block main %}{% endblock main %}</main>
-    <aside>{% block aside %}{% endblock aside %}</aside>
-{% endblock content %}
-
+<div id="content">
+    {% block content %}
+        <main>{% block main %}{% endblock main %}</main>
+        <aside>{% block aside %}{% endblock aside %}</aside>
+    {% endblock content %}
+</div>
+    
 <footer>
     {% set author = config.extra.author %}
     {% if author %}

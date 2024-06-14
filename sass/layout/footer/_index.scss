@@ -2,13 +2,29 @@
 @use 'identity';
 @use 'copyright';
 
-@container body (min-width: 900px) {
+@container body (max-width: 1000px) {
+    footer {
+        border-top: 1px solid var(--contrast);
+        padding-top: 3em;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+
+        > #identity {
+            padding-bottom: 3em;
+            border-bottom: 1px solid var(--contrast);
+        }
+    }
+}
+
+@container body (min-width: 1000px) {
     footer {
         border-top: 1px solid var(--contrast);
         padding-top: 3em;
         
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr auto;
         grid-template:
             "socials author"
             "copyright copyright";
@@ -28,21 +44,6 @@
         > #copyright {
             grid-area: copyright;
         }
+
     }
 }
-
-@container body (max-width: 900px) {
-    footer {
-        border-top: 1px solid var(--contrast);
-        padding-top: 3em;
-        
-        display: flex;
-        flex-direction: column;
-        gap: 3em;
-
-        > #identity {
-            padding-bottom: 3em;
-            border-bottom: 1px solid var(--contrast);
-        }
-    }
-}    

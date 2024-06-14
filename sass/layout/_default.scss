@@ -16,43 +16,66 @@ html:has(body.default) {
         container-name: body;
 
         flex: 1;
-        max-width: 140ch;
-        
+        max-width: 125ch;
         
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
         padding: min(7vw, 3em);
-        gap: 4em;
+        gap: 4em 0;
 
-        > header, > footer {
-            width: 100%;
-        }
-
-        > main {
+        > div#content {
             flex: 1;
-            max-width: 70ch;
-            min-width: 50ch;
-        }
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 3em;
+            justify-content: center;
 
-        > aside {
-            max-width: 40ch;
-            min-width: 30ch;
+            > main {
+                justify-self: center;
+                grid-area: main;
+    
+                max-width: 75ch;
+                min-width: 50ch;
+    
+                .giscus {
+                    margin-top: 3em;
+                    padding-top: 3em;
+                    border-top: 1px solid var(--contrast);
+                }
+            }
+
+            > aside {
+                grid-area: aside;
+                justify-self: right;
+    
+                max-width: 40ch;
+                min-width: 30ch;
+    
+                > * {
+                    position: sticky;
+                    top: 2em;
+                }
+    
+                &:not(:has(*)) {
+                    display: none;
+                }
+            }
         }
     }
 
+    @container body (max-width: calc(90ch + 4em)) {
 
-    @container body (max-width: calc(80ch + 4em)) {
-        main {
-            flex: 1;
-            max-width: 100%;
-            width: 100%;
-        }
+        body > div#content {
+            > main {
+                min-width: auto;
+                width: 100%;
+            }
 
-        aside {
-            display: none;
+            > aside {
+                display: none;
+            }
         }
-    }   
+    }
 }
-

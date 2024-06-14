@@ -60,12 +60,12 @@
             <img src="{{ get_url(path="fingerprint.svg") }}" alt="{{ author.gpg }}" class="gpg-qr">
             <address>
                 <span>{{ author.name }}</span>
-                <code class="gpg" class="icon-encrypted">
+                <code class="gpg">
                     {% for chunk in author.gpg | split(pat=" ") %}
                         <span>{{ chunk }}</span>
                     {% endfor %}
                 </code>
-                <code class="gpg-locate">gpg2 --locate-keys {{ author.email }}</code>
+                <p class="contact-note">I'm always open to new ideas and interesting projects. Feel free to get in touch if you have something you'd like to discuss.</p>
             </address>
         </section>
         {% if author.socials %}

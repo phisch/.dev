@@ -9,8 +9,9 @@ ul.socials {
     margin: 0;
     padding: 0;
     display: grid;
+    grid-auto-flow: row;
     grid-template-columns: repeat(2, auto);
-    gap: 1em 3em;
+    gap: 1em 2em;
 
     li {
         white-space: nowrap;
@@ -26,5 +27,13 @@ ul.socials {
         .note {
             color: var(--foreground-weak);
         }
+    }
+
+}
+
+
+@container body (max-width: 500px) {
+    ul.socials {
+        grid-template-columns: repeat(1, auto);
     }
 }

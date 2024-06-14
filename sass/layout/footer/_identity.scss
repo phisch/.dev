@@ -1,6 +1,10 @@
+@use '../../colors';
+
 section#identity {
     display: flex;
-    gap: 2em;
+    gap: 3em;
+    justify-content: center;
+    align-items: center;
 
     img.gpg-qr {
         height: 6em;
@@ -26,6 +30,20 @@ section#identity {
             gap: 0.5em;
             align-items: center;
             flex-wrap: wrap;
+            border: 0;
+            padding: 0;
+            background: none;
+            margin-bottom: 1em;
         }
+
+        .contact-note {
+            color: colors.$foreground-weak;
+        }
+    }
+}
+
+@container body (max-width: 500px) {
+    section#identity img {
+        display: none;
     }
 }

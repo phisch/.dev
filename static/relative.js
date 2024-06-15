@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         for (let key in conversions) {
-            if (seconds >= conversions[key]) {
+            if (Math.abs(seconds) >= conversions[key]) {
                 return rtf.format(-Math.floor(seconds / conversions[key]), key);
             }
         }
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return rtf.format(-seconds, 'second');
     }
 
-    const timeElements = document.getElementsByTagName('time');
+    const timeElements = document.querySelectorAll('time.relative');
 
     for (let i = 0; i < timeElements.length; i++) {
         const datetime = timeElements[i].getAttribute('datetime');

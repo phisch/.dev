@@ -1,10 +1,12 @@
+@use '../colors';
+
 html {
     @-moz-document url-prefix() {
         scrollbar-color: var(--contrast) transparent;
     }
 
     &::-webkit-scrollbar {
-        width: 0.5em;
+        width: 0.7em;
     }
 
     &::-webkit-scrollbar-thumb {

@@ -1,6 +1,8 @@
+@use "../colors";
+
 code:not([data-lang]) {
     padding: 0 .4em;
-    border-radius: 0.3rem;
+    border-radius: 0.3em;
     user-select: all;
     color: var(--color-yellow);
     background: var(--contrast);
@@ -11,10 +13,9 @@ code:not([data-lang]) {
 pre[data-lang] {
     background: var(--contrast) !important;
     padding: 1.5rem;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
     overflow-x: auto;
-    //white-space: pre-wrap;
-    //word-wrap: break-word;
+    margin: 0 0 1.5rem;
 
     &::-webkit-scrollbar {
         height: 1.5em;

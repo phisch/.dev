@@ -1,8 +1,12 @@
 {% extends "default.html" %}
 {% import "macros/headings.html" as headings %}
+{% import "macros/date.html" as date %}
+
+{% block layout_name %}default post{% endblock %}
 
 {% block script %}
     <script src="{{ get_url(path="anchors.js", trailing_slash=false) }}"></script>
+    <script src="{{ get_url(path="relative.js", trailing_slash=false) }}"></script>
 {% endblock script %}
 
 {% block aside %}
@@ -10,8 +14,34 @@
 {% endblock aside %}
 
 {% block main %}
-    <h1>{{ page.title }}</h1>
-    {{ page.content | safe }}
+    <article>
+        <header>
+            <div class="publication">
+                <time datetime="{{ page.date }}">{{ date::ordinal(date=page.date) }}</time>
+                {% if page.updated %}
+                    {% set ordinal = date::ordinal(date=page.updated) | trim %}
+                    <span>- updated <time datetime="{{ page.updated }}" title="{{ ordinal }}" class="relative">{{ ordinal }}</time></span>
+                {% endif %}
+            </div>
+            {% if page.taxonomies.tags %}
+                {% set tags = page.taxonomies.tags %}
+                <ul class="tags">
+                    {% for tag in tags %}
+                        <li><a class="tag" href="{{ tag }}">{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <h1>{{ page.title }}</h1>
+            {% if page.authors %}
+                <ul class="authors">
+                    {% for author in page.authors %}
+                        <li>{{ author }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </header>
+        {{ page.content | safe }}
+    </article>
 
     {% if page.earlier %}Previous article: {{ page.earlier.permalink }}{% endif %}
     {% if page.later %}Next article: {{ page.later.permalink }}{% endif %}

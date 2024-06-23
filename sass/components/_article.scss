@@ -1,0 +1,102 @@
+@use '../colors';
+
+main article {
+    --gap: 1.5rem;
+    --font-size-small: 0.9em;
+
+    > summary {
+        margin-top: var(--gap);
+        font-size: var(--font-size-small);
+    }
+
+    p:first-of-type {
+        font-size: 1.3em;
+    }
+
+    > header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--gap);
+
+        margin-bottom: var(--gap);
+        padding-bottom: var(--gap);
+        border-bottom: 1px solid var(--contrast-more);
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
+
+        h1 {
+            width: 100%;
+            margin: 0;
+        }
+
+        .publication {
+            font-size: var(--font-size-small);
+
+            span {
+                color: var(--foreground-weak);
+            }
+        }
+
+        ul.tags {
+            font-size: var(--font-size-small);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                border-radius: 0.25rem;
+
+                a {
+                    color: var(--foreground-weak);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: var(--foreground--strong);
+                    }
+
+                    &::before {
+                        content: "#";
+                    }
+                }
+            }
+        }
+    
+        p {
+            justify-self: start;
+        }
+
+        ul.authors {
+            font-size: var(--font-size-small);
+            justify-self: start;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25em;
+            list-style: none;
+            padding: 0;
+            color: var(--foreground-weak);
+
+            &:before {
+                content: "by ";
+            }
+
+            li {
+                color: colors.$foreground;
+
+                &:has(+ li)::after {
+                    content: ",";
+                }
+    
+                &:has(+ li:last-child)::after {
+                    content: " and";
+                    color: colors.$foreground-weak;
+                }
+            }
+        }
+    }
+}

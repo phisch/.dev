@@ -1,6 +1,10 @@
 @use '../../colors';
 
 #copyright {
-    padding-top: 3em;
-    border-top: 1px solid var(--contrast);
+    padding-top: var(--spacing-vertical);
+    border-top: 1px solid var(--contrast-more);
+
+    p {
+        margin: 0;
+    }
 }

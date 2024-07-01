@@ -1,45 +1,49 @@
 {% extends 'default.html' %}
+{% import "macros/date.html" as date %}
 
-{% block layout_name %}default article-list{% endblock %}
+{% block layout_name %}default articles{% endblock %}
 
 {% block script %}
-    <script src="{{ get_url(path="relative.js", trailing_slash=false) }}"></script>
+<script src="{{ get_url(path=" relative.js", trailing_slash=false) }}"></script>
 {% endblock script %}
 
 {% block main %}
-    {% set posts = get_section(path="posts/_index.md") %}
-    {% if posts.pages | length > 0 %}
-    <ol id="posts">
-        {% for post in posts.pages %}
-        <li class="icon-{{ post.extra.icon | default(value="document") }}">
-            <article>
-                <header>
-                    <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-                    <p>{{ post.reading_time }} minute{{ post.reading_time | pluralize(plural="s") }} read</p>
-                    <time datetime="{{ post.date }}">{{ post.date | date(format="%b %d, %Y") }}</time>
-                    {% if post.taxonomies.tags %}
-                    {% set tags = post.taxonomies.tags %}
-                        <ul class="pills tags">
-                            {% for tag in tags %}
-                            <li><a class="tag" href="{{ tag }}">{{ tag }}</a></li>
-                            {% endfor %}
-                        </ul>
+{% set articles = get_section(path="articles/_index.md") %}
+{% if articles.pages | length > 0 %}
+<ol class="article-list">
+    {% for post in articles.pages %}
+    <li>
+        <article>
+            <header>
+                <div class="publication">
+                    <time datetime="{{ post.date }}">{{ date::ordinal(date=post.date) }}</time>
+                    {% if post.updated %}
+                    {% set ordinal = date::ordinal(date=post.updated) | trim %}
+                    <span>- updated
+                        <time datetime="{{ post.updated }}" title="{{ ordinal }}" class="relative">
+                            {{ ordinal }}
+                        </time>
+                    </span>
                     {% endif %}
-                    {% if post.taxonomies.projects %}
-                        {% set projects = post.taxonomies.projects %}
-                        <ul class="pills projects">
-                            {% for project in projects %}
-                            <li><a href="{{ project }}">{{ project }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </header>
-                {% if post.summary %}
-                    <summary>{{ post.summary | safe }}</summary>
+                </div>
+                {% if post.taxonomies.tags %}
+                {% set tags = post.taxonomies.tags %}
+                <ul class="tags">
+                    {% for tag in tags %}
+                    <li><a class="tag" href="{{ tag }}">{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
                 {% endif %}
-            </article>
-        </li>
-        {% endfor %}
-    </ol>
-    {% endif %}
+                <h1 class="icon-{{ post.extra.icon | default(value=" document") }}">
+                    <a href="{{ post.permalink }}">{{ post.title }}</a>
+                </h1>
+            </header>
+            {% if post.summary %}
+            <summary>{{ post.summary | safe }}</summary>
+            {% endif %}
+        </article>
+    </li>
+    {% endfor %}
+</ol>
+{% endif %}
 {% endblock main %}

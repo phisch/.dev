@@ -38,7 +38,7 @@
                 {% endfor %}
                 {% if config.generate_feed %}
                     <li>
-                        <a target="_blank" class="icon-rss_feed" href="{{ get_url(path=config.feed_filename) }}">RSS</a>
+                        <a target="_blank" class="icon-rss_feed" href="{{ get_url(path='atom.xml') }}">Feed</a>
                     </li>
                 {% endif %}
             </ul>

@@ -1,0 +1,61 @@
+@use '../colors';
+
+ol.article-list {
+    --gap: min(3em, 5vh);
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    > li {
+        &:not(:last-child) {
+            padding-bottom: var(--gap);
+            border-bottom: 1px solid var(--contrast);
+        }
+
+        article {
+            --gap: 1rem;
+            --font-size-small: 0.8em;
+
+            header {
+                border-bottom: 0;
+                margin-bottom: 0;
+                padding: 0;
+
+                h1 {
+                    --gap: 1em;
+                    font-size: 1.5em;
+                    display: flex;
+                    
+                    gap: var(--gap);
+                    margin-left: calc(-2 * var(--gap));
+                    align-items: center;
+    
+                    &::before {
+                        color: var(--color-green);
+                        scale: 1.2;
+                    }
+
+                    @container body (max-width: calc(94ch)) {
+                        margin-left: 0;
+                    }
+
+                    @container body (max-width: calc(40ch)) {
+                        justify-content: space-between;
+
+                        &::before {
+                            order: 2;
+                        }
+                    }
+                }
+            }
+
+            summary p {
+                margin: 0;
+            }
+        }
+    }
+}

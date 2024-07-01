@@ -4,31 +4,31 @@
 
 @container body (max-width: 1000px) {
     footer {
-        border-top: 1px solid var(--contrast);
-        padding-top: 3em;
+        border-top: 1px solid var(--contrast-more);
+        padding-top: var(--spacing-vertical);
         
         display: flex;
         flex-direction: column;
-        gap: 3em;
+        gap: var(--spacing-vertical);
 
         > #identity {
-            padding-bottom: 3em;
-            border-bottom: 1px solid var(--contrast);
+            padding-bottom: var(--spacing-vertical);
+            border-bottom: 1px solid var(--contrast-more);
         }
     }
 }
 
 @container body (min-width: 1000px) {
     footer {
-        border-top: 1px solid var(--contrast);
-        padding-top: 3em;
+        border-top: 1px solid var(--contrast-more);
+        padding-top: var(--spacing-vertical);
         
         display: grid;
         grid-template-columns: 1fr auto;
         grid-template:
             "socials author"
             "copyright copyright";
-        gap: 3em;
+        gap: var(--spacing-vertical);
 
         > #socials {
             grid-area: socials;
@@ -37,13 +37,12 @@
         > #identity {
             grid-area: author;
 
-            padding-left: 3em;
-            border-left: 1px solid var(--contrast);
+            padding-left: var(--spacing-horizontal);
+            border-left: 1px solid var(--contrast-more);
         }
 
         > #copyright {
             grid-area: copyright;
         }
-
     }
 }

@@ -1,0 +1,6 @@
+{% import "macros/number.html" as number %}
+
+{% macro ordinal(date) %}
+    {% set day = number::ordinal(num = date | date(format="%d") | int) | trim %}
+    {{ date | date(format="%B") }} {{ day }} {{ date | date(format="%Y") }}
+{% endmacro %}

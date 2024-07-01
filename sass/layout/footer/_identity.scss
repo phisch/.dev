@@ -2,12 +2,12 @@
 
 section#identity {
     display: flex;
-    gap: 3em;
+    gap: var(--spacing-horizontal);
     justify-content: center;
     align-items: center;
 
     img.gpg-qr {
-        height: 6em;
+        height: 7em;
         border-radius: 0.3em;
         transition: transform 0.3s ease-in-out;
 
@@ -20,6 +20,8 @@ section#identity {
         display: flex;
         flex-direction: column;
         font-style: normal;
+        justify-content: space-between;
+        gap: 0.5em;
 
         p {
             margin: 0;
@@ -33,11 +35,10 @@ section#identity {
             border: 0;
             padding: 0;
             background: none;
-            margin-bottom: 1em;
         }
 
         .contact-note {
-            color: colors.$foreground-weak;
+            color: var(--foreground-weak);
         }
     }
 }

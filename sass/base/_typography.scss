@@ -1,53 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=block');
+@use '../colors';
+
+// todo: also import jetbrains mono
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+$font: 'Mulish', sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
 
 body {
-    font-family: 'Inter', sans-serif;
+    --spacing: calc(max(1rem, 1em) * 1.5);
+
+    font-family: $font;
+    //font-size: clamp(1em, 1vw, 1.2em);
     color: var(--foreground);
-    line-height: 1.6em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    line-height: 1.4em;
-}
-
-code {
-    font-family: 'JetBrains Mono', monospace;
+main article {
+    //font-size: clamp(1em, 2.2vw, 1.2em);
     font-weight: 400;
 }
 
+p, ul, ol, blockquote, pre, table {
+    margin: 0 0 1.5em;
+}
+
+p {
+    line-height: 1.5em;
+    letter-spacing: 0.02em;
+}
+
+code {
+    font-family: $font-mono;
+    font-weight: 400;
+    line-height: 1.6em;
+    font-size: 0.9em;
+}
+
+$sizes: 2.6em, 2.2em, 1.8em, 1.5em, 1.2em, 1em;
+
+@each $size in $sizes {
+    $i: index($sizes, $size);
+    h#{$i} {
+        font-size: $size;
+    }
+}
+
 h1, h2, h3, h4, h5, h6 {
+    margin: 1.5em 0 calc(1em / 2);
+    font-weight: 200;
+    line-height: 1.3em;
     color: var(--foreground-strong);
 
     a {
         text-decoration: none;
         color: inherit;
-        position: relative;
         display: flex;
-        align-items: center;
 
-        &:hover {
-            text-decoration: inherit;
-
+        main > article > & {
+            margin-left: -1em;
+        
             &::before {
                 content: '#';
-                position: absolute;
-                left: -1em;
-                font-size: 1.2em;
-                padding-right: 0.3em;
+                width: 1em;
+                transform: scale(1);
+                color: var(--contrast-more);
+            }
+
+            &:hover::before {
                 color: var(--foreground-weak);
             }
         }
     }
+
+    @container body (max-width: 380px) {
+        a:hover {
+            margin-left: auto;
+
+            &::before {
+                display: none;
+            }
+        }
+    }  
 }
 
-a {
+a:not(:is(h1, h2, h3, h4, h5, h6) a) {
     color: var(--accent-secondary);
     text-decoration: none;
-
+    
     &:hover {
-        color: var(--foreground-strong);
         text-decoration: underline;
+        color: var(--foreground-strong);
+    }
+
+    &:visited {
+        color: var(--accent-primary);
+    }
+
+    &:active {
+        color: var(--color-red);
+    }
+}
+
+*:focus-visible {
+    --spacing: max(0.3em, 0.2rem);
+    
+    position: relative;
+    outline: 1px dashed var(--accent-primary);
+    background: #{transparentize(colors.$accent-primary, 0.8)};
+    color: colors.$foreground-strong !important;
+    border-radius: 0.25rem;
+    padding: var(--spacing) calc(var(--spacing) * 2);
+    margin: calc(-1* var(--spacing)) calc(-2 * var(--spacing));
+
+    &[class^="icon-"] {
+        padding: var(--spacing);
+        margin: calc(-1* var(--spacing));
+    }
+}
+
+table {    
+    border-collapse: collapse;
+    display: block;
+    border-radius: 0.25rem;
+    background: var(--contrast);
+    overflow: hidden;
+
+    thead {
+        background: var(--contrast);
+    }
+
+    td, th {
+        padding: 0.6em;
+    }
+
+    td:not(:last-child), th:not(:last-child) {
+        border-right: 1px solid var(--contrast);
+    }
+
+    tbody tr {
+        border-top: 1px solid var(--contrast);
+
+        &:nth-child(2n) {
+            background: var(--contrast);
+        }
     }
 }

@@ -4,10 +4,9 @@
 body > header {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 3em;
-    border-bottom: 1px solid var(--contrast);
+    padding-bottom: var(--spacing-vertical);
+    border-bottom: 1px solid var(--contrast-more);
 }
-
 
 @container body (max-width: 300px) {
     body > header {

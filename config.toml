@@ -6,8 +6,8 @@ default_language = "en"
 compile_sass = true
 minify_html = true
 build_search_index = true
-generate_feed = true
-feed_filename = "rss.xml"
+generate_feeds = true
+author = "Philipp Schaffrath"
 
 taxonomies = [
     { name = "projects", feed = true, render = false },
@@ -30,8 +30,8 @@ navigation = [
 [extra.author]
 name = "Philipp Schaffrath"
 email = "philipp.schaffrath@gmail.com"
-#gpg = "6BEB117F7BDBD749"
-gpg = "A001 55F3 C961 D57E 6452 99D6 6BEB 117F 7BDB D749"
+gpg = "6BEB 117F 7BDB D749"
+#gpg = "A001 55F3 C961 D57E 6452 99D6 6BEB 117F 7BDB D749"
 
 socials = [
     { name = "GitHub", icon = "github", handle = "phisch", url = "https://github.com/phisch", header = true },
